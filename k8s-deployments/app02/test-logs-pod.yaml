@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-logs
+  namespace: dev
+  labels:
+    app: test-logs
+spec:
+  restartPolicy: Never
+  containers:
+    - name: busybox-logger
+      image: busybox
+      command:
+        - /bin/sh
+        - -c
+        - |
+          while true; do
+            echo "Log de prueba desde el pod $(date +'%Y-%m-%d %H:%M:%S')"
+            sleep 5
+          done
