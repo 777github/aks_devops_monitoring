@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg_01" {
-  name     = "rg-ricvera-dev-eastus-01"
-  location = "East US"
+  name     = "rg-ricvera-dev-westus3-01"
+  location = "westus3"
   tags = {
     Project = "Monitoring"
   }
@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "rg_01" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks_01" {
-  name                = "aks-ricvera-dev-eastus-01"
+  name                = "aks-ricvera-dev-westus3-01"
   location            = azurerm_resource_group.rg_01.location
   resource_group_name = azurerm_resource_group.rg_01.name
   dns_prefix          = "aksdns"
